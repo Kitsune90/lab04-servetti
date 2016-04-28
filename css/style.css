@@ -30,3 +30,7 @@ table{
 td{
     width: 12.5%;
 }
+
+#navbar{
+    border-radius: 0em;
+}
