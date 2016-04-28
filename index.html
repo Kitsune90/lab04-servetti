@@ -16,7 +16,7 @@
 <body ng-controller="AppCtrl">
 
 <!-- Barra di navigazione -->
-<nav class="navbar navbar-default" role="navigation">
+<nav id="navbar" class="navbar navbar-default" role="navigation">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle"
                 data-toggle="collapse" data-target="#nav-toggle">
@@ -47,16 +47,23 @@
 <!-- Contenitore del calendario -->
 <div id="animationSandbox" style="display: block" class="container jello animated">
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-4">
+            <div class="list-group">
+                <span class="list-group-item list-group-item-info">Elenco prenotaizoni</span>
+                <a href="#" class="list-group-item">Prenotazione 1 ...</a>
+                <a href="#" class="list-group-item">Prenotazione 2 ...</a>
+                <a href="#" class="list-group-item">Prenotazione 3 ...</a>
+            </div>
+        </div>
+        <div class="col-sm-8">
             <div class="clearfix">
 
                 <!-- Bottoni di scorrimento dei mesi -->
                 <div class="btn-group btn-group-justified">
-                    <a id="btn1" href="#" class="btn btn-danger"><span class="glyphicon glyphicon-chevron-left"></span>Precedente</a>
+                    <a id="btn1" href="#" class="btn btn-danger"><span class="glyphicon glyphicon-chevron-left"></span></a>
                     <a id="btn2" href="#" class="btn btn-primary disabled">Mese - Anno</a>
-                    <a id="btn3" href="#" class="btn btn-success">Successivo<span class="glyphicon glyphicon-chevron-right"></span></a>
+                    <a id="btn3" href="#" class="btn btn-success"><span class="glyphicon glyphicon-chevron-right"></span></a>
                 </div>
-
 
                 <!-- Tabella del calendario vera e propria -->
                 <div id="calendar">
@@ -75,7 +82,7 @@
                                     <td class="info">{{hour}}</td>
 
                                     <!-- Generazione degli slot del calendario vuoti -->
-                                    <td></td>
+                                    <td ng-style="cell" ng-click="cell={background:'red'}"></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
