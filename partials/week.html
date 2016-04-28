@@ -1,0 +1,76 @@
+<!doctype html>
+<html ng-app="schedulerApp">
+<head>
+
+    <script src="../js/libs/lodash.js"></script>
+    <script src="../js/libs/jquery.js"></script>
+    <script src="../js/libs/jquery-ui.js"></script>
+
+    <script src="../js/libs/bootstrap.js"></script>
+    <script src="../js/libs/moment.js"></script>
+    <script src="../js/libs/moment-range.js"></script>
+    <script src="../js/libs/angular.js"></script>
+    <script src="../js/libs/angular-route.js"></script>
+
+    <script src="../js/app.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animate.css">
+</head>
+<body>
+
+<div id="animationSandbox" style="display: block" class="container jello animated" ng-controller="WeekController">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="clearfix">
+
+                <!-- Bottoni di scorrimento dei mesi -->
+                <div class="btn-group btn-group-justified">
+                    <a id="btn1" href="#" class="btn btn-danger"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                    <a id="btn2" href="#" class="btn btn-primary disabled">Mese - Anno</a>
+                    <a id="btn3" href="#" class="btn btn-success"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                </div>
+
+                <!-- Tabella del calendario vera e propria -->
+                <div id="calendar">
+
+                    <div class="weeknames" ng-model="dayweeks">
+                        <table class="table" id="calendarTable" style="width:100%">
+                            <tbody>
+
+                            <!-- Generazione dei giorni della settimana da Dom... a ...Sab -->
+                            <td class="info" ng-repeat="day in dayweeks">
+                                {{day}}
+                            </td>
+
+                            <!-- Generazione della colonna delle ore -->
+                            <tr ng-repeat="hour in hourSlots">
+                                <td class="info">{{hour}}</td>
+
+                                <!-- Generazione degli slot del calendario vuoti -->
+
+                                <td ng-repeat="day in slotInterni track by $index">{{day}}</td>
+
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div ng-view></div>
+</div>
+
+
+
+
+
+</body>
+</html>
